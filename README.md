@@ -65,7 +65,7 @@ Actions to do this (see `.github/workflows/package.yml` and `.github/workflows.r
 
 To release to production, push to the origin to the release branch:
 ```
-git push origin master:release
+git push origin main:release
 ```
 The maven release plugin will then stage and deploy a new versioned release, tagging the git repo
 with the version of the release.
