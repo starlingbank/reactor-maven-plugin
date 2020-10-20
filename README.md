@@ -48,4 +48,26 @@ Dump the reactor list in [DOT] format, showing upstream dependencies to STDOUT:
 mvn -q reactor:dump -Ddirection=up -Dformat=dot
 ```
 
+## Building from source
+
+Clone the repository:
+```
+git clone git@github.com:starlingbank/reactor-maven-plugin.git
+```
+
+Install to your local m2 repository (you can then use the x.y-SNAPSHOT version locally):
+```
+mvn clean install
+```
+
+Commits to this project will automatically be staged in maven central as snapshots. We use Github
+Actions to do this (see `.github/workflows/package.yml` and `.github/workflows.release.yml`).
+
+To release to production, push to the origin to the release branch:
+```
+git push origin master:release
+```
+The maven release plugin will then stage and deploy a new versioned release, tagging the git repo
+with the version of the release.
+
 [DOT]: https://en.wikipedia.org/wiki/DOT_(graph_description_language)
