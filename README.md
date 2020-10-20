@@ -1,5 +1,20 @@
 # Maven Reactor Plugin
 
+## Installation
+
+Add the following to your root `pom.xml`:
+```xml
+<plugins>
+  ...
+  <plugin>
+    <groupId>com.starlingbank</groupId>
+    <artifactId>reactor-maven-plugin</artifactId>
+    <version>1.0</version>
+  </plugin>
+  ...
+</plugins>
+```
+
 ## Dumper
 
 It is occasionally useful to be able to get some information about the order in which Maven will
