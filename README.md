@@ -1,5 +1,7 @@
 # Maven Reactor Plugin
 
+This is a Maven plugin which can be used to dump the details of the Maven reactor.
+
 ## Installation
 
 Add the following to your root `pom.xml`:
@@ -69,5 +71,8 @@ git push origin main:release
 ```
 The maven release plugin will then stage and deploy a new versioned release, tagging the git repo
 with the version of the release.
+
+You should then either rebase onto main or merge the changes, deleting the original `release` branch
+in the process.
 
 [DOT]: https://en.wikipedia.org/wiki/DOT_(graph_description_language)
