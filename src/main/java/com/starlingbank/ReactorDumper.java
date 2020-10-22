@@ -59,7 +59,7 @@ public class ReactorDumper {
 
       case FLAT:
       default:
-        return projectStream.map(this::trimId);
+        return projectStream.map(p -> trimId(p) + "\n");
     }
  }
 
