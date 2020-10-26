@@ -74,7 +74,7 @@ public class ReactorDumper {
   private String dumpDependencies(final MavenProject project, final List<MavenProject> dependentProjects, final Format format) {
     switch (format) {
       case DOT:
-        return dependentProjects.stream().map(p -> "  " + trimId(project) + " -> " + trimId(p) + ";\n").collect(Collectors.joining());
+        return dependentProjects.stream().map(p -> "  " + trimId(project, true) + " -> " + trimId(p, true) + ";\n").collect(Collectors.joining());
 
       case TEXT:
       default:
@@ -83,6 +83,15 @@ public class ReactorDumper {
   }
 
   private String trimId(final MavenProject project) {
-    return project.getArtifactId().trim().replaceAll("[\\.-]", "_");
+    return trimId(project, false);
+  }
+
+  private String trimId(final MavenProject project, final boolean replaceDotsAndHyphens) {
+    final String trim = project.getArtifactId().trim();
+    if (replaceDotsAndHyphens) {
+      return trim.replaceAll("[\\.-]", "_");
+    }
+
+    return trim;
   }
 }
